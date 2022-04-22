@@ -21,7 +21,7 @@ public class Page {
     By skipButton = By.id("com.teknasyon.coloringbook:id/skipButton");
     By navBarHomePage = By.id("com.teknasyon.coloringbook:id/home");
     By navBarCategories = By.id("com.teknasyon.coloringbook:id/categories");
-    By advertising1Close = By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[2]/android.widget.ImageView");
+    By advertising1Close = By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ImageView");
     By advertising2Close = MobileBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ImageView");
 
     public Page(AndroidDriver driver) {
@@ -66,19 +66,11 @@ public class Page {
     }
 
     public void clikCloseAdvertising() {
-        List<MobileElement> dynamicElement = driver.findElements(advertising1Close);
-        if (dynamicElement.size() != 0) {
-            System.out.println("Element present");
-            clickElement(advertising1Close);
-        } else {
-            System.out.println("Element not present");
-        }
-
+            driver.findElement(advertising1Close).click();
     }
 
     public void tapCordinatesCloseAdvertising() {
         List<MobileElement> dynamicElement = driver.findElements(advertising2Close);
-
         if (dynamicElement.size()!=0) {
             System.out.println("Element 2 present");
             tapElementCordinates(1013,68);
@@ -94,9 +86,10 @@ public class Page {
                 .perform();
     }
 
-    public void clickElement(By element) {
+    public void clickElement(By element) throws InterruptedException {
         MobileElement element1 = driver.findElement(element);
         element1.click();
+        Thread.sleep(1000);
     }
 
     public void sendText(By element, String text){
@@ -108,7 +101,7 @@ public class Page {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
-    public void verticalSwipeByPercentages(double startPercentage, double endPercentage, double anchorPercentage) throws InterruptedException {
+    public void verticalSwipeByPercentages(double startPercentage, double endPercentage, double anchorPercentage){
 
         Dimension size = driver.manage().window().getSize();
         int anchor = (int) (size.width * anchorPercentage);

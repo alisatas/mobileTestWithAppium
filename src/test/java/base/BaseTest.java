@@ -23,7 +23,7 @@ public class BaseTest {
         caps = new DesiredCapabilities();
         caps.setCapability("platformName", "Android");
         //caps.setCapability("udid", "15efb925");
-        caps.setCapability("platformVersion", "12");
+        caps.setCapability("platformVersion", "11");
         caps.setCapability("automationName", "UiAutomator2");
         caps.setCapability("deviceName", "sdk_gphone64_arm64");
         //caps.setCapability("noReset", "True");

@@ -29,18 +29,18 @@ public class LandingPageDefs extends BaseTest {
 
     @And("First Page Get Title {string}")
     public void firstPageGetTitle(String firstTitle) throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         landingPage = new LandingPage(driver);
         landingPage.getTitlePage(landingPage.pageTitle, firstTitle);
     }
-    
+
     @And("First Page Get Description {string}")
     public void firstPageGetDescription(String firstDesc) {
         landingPage.getTitlePage(landingPage.pageDetailText, firstDesc);
     }
 
     @When("First Page Skip Button")
-    public void firstPageSkipButton() {
+    public void firstPageSkipButton() throws InterruptedException {
         landingPage.clickElement(landingPage.skipButton);
     }
 
@@ -55,7 +55,7 @@ public class LandingPageDefs extends BaseTest {
     }
 
     @When("Second Page Skip Button")
-    public void secondPageSkipButton() {
+    public void secondPageSkipButton() throws InterruptedException {
         landingPage.clickElement(landingPage.skipButton);
     }
 
@@ -70,7 +70,7 @@ public class LandingPageDefs extends BaseTest {
     }
 
     @When("Third Page Skip Button")
-    public void thirdPageSkipButton() {
+    public void thirdPageSkipButton() throws InterruptedException {
         landingPage.clickElement(landingPage.skipButton);
     }
 

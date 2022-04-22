@@ -8,13 +8,9 @@ Feature: Landing Page Text Control And Skip Button
     When First Page Skip Button
     Then Go To Second Page Get Title "Be Creative"
     And Second Page Get Description "Unleash your creativity! Share your paintings with your friends and get fans!"
-#    When Second Page Skip Button
-#    Then Go To Third Page Get Title "Muhteşem Paletler"
-#    And Third Page Get Description "Birbirinden harika renk paletlerini keşfedin. Artık hazırsınız."
-#    When Third Page Skip Button
-#    And Close Advertising
-    #Then Go To Home Page
-
-
-
-
+    When Second Page Skip Button
+    Then Go To Third Page Get Title "Fabulous Palettes"
+    And Third Page Get Description "Discover our fabulous color palettes. Take your time and enjoy the world of iPaint."
+    When Third Page Skip Button
+    And Close Advertising
+    Then Go To Home Page
